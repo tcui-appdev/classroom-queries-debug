@@ -8,9 +8,10 @@ class StudentsController < ApplicationController
   end
 
   def show
-    the_id = params.fetch("id")
+    the_id = params.fetch("path_id")
+    p the_id
 
-    matching_students = Enrollment.where({ :id => the_id })
+    matching_students = Enrollment.where({ :student_id => the_id })
 
     @the_student = matching_students.at(0)
 
